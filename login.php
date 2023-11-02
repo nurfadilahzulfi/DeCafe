@@ -1,3 +1,9 @@
+<?php 
+  //session_start();
+  if(!empty($_SESSION["username_decafe"])){
+    header("location:home");
+  }
+?>
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head><script src="../assets/js/color-modes.js"></script>
@@ -151,20 +157,20 @@
 
     
     <!-- INI UNTUK FORM-->
-<main class="form-signin w-100 m-auto">
-  <form class="needs-validation" novalidate>
+<main class="text-center form-signin w-100 m-auto">
+  <form class="needs-validation" novalidate action="proses/proses_login.php" method="POST">
     <i class="bi bi-cup-hot fs-1"></i>
     <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+      <input name="username" type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
       <label for="floatingInput">Email address</label>
       <div class="invalid-feedback">
         Masukkan email yang valid.
       </div>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+      <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
       <label for="floatingPassword">Password</label>
       <div class="invalid-feedback">
         Masukkan password!!
@@ -177,7 +183,7 @@
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit">Login</button>
+    <button class="btn btn-primary w-100 py-2" type="submit" name="submit_validate" value="abc">Login</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2022–2023</p>
   </form>
 </main>
